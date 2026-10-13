@@ -37,13 +37,10 @@ public class Main {
                 System.out.print("Equation: ");
                 tokenSequence = getNextSequence(myScanner);
                 if (tokenSequence != null) {
-                    // Replace the code starting here with code to evaluate the expression
-                    System.out.print("Read equation: ");
-                    for (Token tok : tokenSequence) {
-                        System.out.print(tok.getTokenString() + " ");
-                    }
-                    System.out.println();
-                    // End where to replace
+                    // Start of replaced code
+                    Calculator calc = new Calculator();
+                    System.out.println(calc.evaluate(tokenSequence));
+                    // End of replaced code
                 }
             } while (tokenSequence != null);
         }
