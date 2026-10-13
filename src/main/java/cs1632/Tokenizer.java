@@ -68,6 +68,7 @@ public class Tokenizer {
                         return new OpToken(ch);
                     default:
                         System.err.println("Unknown character (" + ((char) ch) + ")");
+                        ch = nextChar();
                         break;
                 }
             }
