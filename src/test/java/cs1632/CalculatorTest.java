@@ -61,4 +61,20 @@ class CalculatorTest {
         assertEquals("Error: division by zero",calc.evaluate(tokens("/ 100 0;")));
         assertEquals("Result: 0.0",calc.evaluate(tokens("/ 0 10;")));
     }
+
+    @org.junit.jupiter.api.Test
+    void testMultipleOperators() {
+        assertEquals("Result: 14.0",calc.evaluate(tokens("+ 2 * 3 4;")));
+        assertEquals("Result: 2.0",calc.evaluate(tokens("- * 2 3 4;")));
+    }
+
+    @org.junit.jupiter.api.Test
+    void testIllegalOperators() {
+        assertEquals("Error: illegal token (()",calc.evaluate(tokens("( 12 4;")));
+    }
+
+    @org.junit.jupiter.api.Test
+    void testTooFewOperands() {
+        assertEquals("Error: malformed expression",calc.evaluate(tokens("+ 5;")));
+    }
 }
