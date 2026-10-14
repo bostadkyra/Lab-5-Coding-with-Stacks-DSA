@@ -71,6 +71,7 @@ class CalculatorTest {
     @org.junit.jupiter.api.Test
     void testIllegalOperators() {
         assertEquals("Error: illegal token (()",calc.evaluate(tokens("( 12 4;")));
+        assertEquals("Error: illegal token (%)",calc.evaluate(tokens("% 12 4;")));
     }
 
     @org.junit.jupiter.api.Test
