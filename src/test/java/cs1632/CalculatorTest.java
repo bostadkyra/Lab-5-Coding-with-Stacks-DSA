@@ -37,7 +37,28 @@ class CalculatorTest {
     }
 
     @org.junit.jupiter.api.Test
-    void evaluate() {
+    void testAddition() {
+        assertEquals("Result: 7.0",calc.evaluate(tokens("+ 3 4;")));
+        assertEquals("Result: 13.0",calc.evaluate(tokens("+ 12 1;")));
+    }
 
+    @org.junit.jupiter.api.Test
+    void testSubtraction() {
+        assertEquals("Result: 7.0",calc.evaluate(tokens("- 10 3;")));
+        assertEquals("Result: -7.0",calc.evaluate(tokens("- 3 10;")));
+    }
+
+    @org.junit.jupiter.api.Test
+    void testMultiplication() {
+        assertEquals("Result: 0.0",calc.evaluate(tokens("* 0 3;")));
+        assertEquals("Result: 200.0",calc.evaluate(tokens("* 100 2;")));
+    }
+
+    @org.junit.jupiter.api.Test
+    void testDivision() {
+        assertEquals("Result: 4.0",calc.evaluate(tokens("/ 12 3;")));
+        assertEquals("Result: 0.5",calc.evaluate(tokens("/ 5 10;")));
+        assertEquals("Error: division by zero",calc.evaluate(tokens("/ 100 0;")));
+        assertEquals("Result: 0.0",calc.evaluate(tokens("/ 0 10;")));
     }
 }
